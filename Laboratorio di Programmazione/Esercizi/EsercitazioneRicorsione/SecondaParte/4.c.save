@@ -1,0 +1,12 @@
+//Data una lista concatenata in cui ogni nodo contiene un numero di telefono codificato in forma di vettore di interi, scrivere una funzione ricorsiva che elimini dalla lista tutti i numeri di telefono che non iniziano con prefisso 081.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main () {
+	
+
+
+
+	return 0;
+}
