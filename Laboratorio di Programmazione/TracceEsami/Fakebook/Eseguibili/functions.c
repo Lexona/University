@@ -2,7 +2,7 @@
 
 //funzione di inizializzazione della coda
 void init_queue (struct Bacheca *b) {
-	b->deposito = (struct Post*)malloc(MAX * sizeof(struct Post));
+	b->deposito = (struct Post**)malloc(MAX * sizeof(struct Post*));
 	b->first_in = 0;
 	b->first_out = 0;
 	b->n_occupati = 0;
@@ -22,13 +22,15 @@ int is_empty (struct Bacheca *b) {
 }
 
 //funzione di inserimento dati nella coda
-int append (struct Bacheca *b, struct Post *p) {
+int append (struct Bacheca *b, struct Post p) {
 	//controllo se la coda è vuota
 	if (len(b) >= MAX)
 		return 1;
 
 	//negli altri casi
-	b->deposito[b->first_in] = *p;
+	b->deposito[b->first_in] = malloc(sizeof(struct Post));
+
+	*b->deposito[b->first_in] = p;
 	b->first_in = (b->first_in + 1) % MAX;
 	b->n_occupati++;
 
@@ -49,13 +51,12 @@ void load_user_from_file (struct Bacheca *b, char nomeFile[]) {
 	init_queue (b);
 
 	char c; //variabile di appoggio per la lettura
+	struct Post p;
 
 	while (!feof(file)) {
-		struct Post *p = (struct Post*)malloc(sizeof(struct Post));
-
 		fscanf(file, "%c", &c); //faccio una lettura a vuoto
-		fgets(p->msg, sizeof(p->msg), file);
-		fscanf(file, "%d", &p->n_like);
+		fgets(p.msg, sizeof(p.msg), file);
+		fscanf(file, "%d", &p.n_like);
 
 		//aggiungo i dati nella coda
 		append(b, p);
@@ -72,7 +73,7 @@ struct Post *pop (struct Bacheca *b) {
 		return NULL;
 
 	//negli altri casi
-	struct Post *p = &b->deposito[b->first_out];
+	struct Post *p = b->deposito[b->first_out];
 	b->first_out = (b->first_out + 1) % MAX;
 	b->n_occupati--;
 	return p;
@@ -88,6 +89,13 @@ void print(struct Post *p) {
 
 //funzione di deeallocazione
 void deallocate (struct Bacheca *b) {
+	//controllo se è vuota
+	if (is_empty(b) != 1) {
+		for (int i = b->first_out; i < len(b); i++) {
+			free(b->deposito[i]);
+		}
+	}
+
 	free(b->deposito);
 }
 

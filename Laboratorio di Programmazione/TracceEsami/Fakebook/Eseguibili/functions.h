@@ -12,7 +12,7 @@ int len (struct Bacheca *);
 int is_empty (struct Bacheca *);
 
 //funzione di inserimento dati nella coda
-int append (struct Bacheca *, struct Post *);
+int append (struct Bacheca *, struct Post);
 
 //funzione di caricamento dati dal file
 void load_user_from_file (struct Bacheca *, char[]);
