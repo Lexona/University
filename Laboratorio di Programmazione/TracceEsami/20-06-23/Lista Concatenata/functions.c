@@ -110,7 +110,7 @@ void sfida (struct Personaggio *p1, struct Personaggio *p2) {
   colpisci(p1, p2);
 }
 
-//funzione di scrittura dati nel file
+//funzione di scrittura dati nel file (Facoltativo A)
 void write (struct Personaggio *start, char nomeFile[]) {
   //apro il file in modalità scrittura
   FILE *file = fopen(nomeFile, "w");
@@ -165,6 +165,47 @@ void trova_personaggio (struct Personaggio *start, struct Personaggio *p1, struc
       p2 -> ap = punt -> ap;
     }
 
+    punt = punt -> prossimo;
+  }
+}
+
+//funzione che mi trova due personaggio randomici all'interno della lista (Facoltativo B)
+void rand_players(struct Personaggio *start, struct Personaggio *p1, struct Personaggio *p2) {
+  //calcolo il numero di elementi presenti nella lista
+  int count = 0;
+  struct Personaggio *punt = start;
+
+  while (punt != NULL) {
+    count++;
+    punt = punt -> prossimo;
+  }
+
+  //genero due indici casuali controllando che siano distinti
+  int index1 = rand() % count, index2;
+  do {
+    index2 = rand() % count;
+  } while (index1 == index2);
+
+  //scorro la lista fino ad arrivare ai nodi desiderati
+  int current_index = 0;
+  punt = start; //lo riporto all'inizio della lista
+
+  while (punt != NULL) {
+    if (current_index == index1) {
+      strcpy(p1->nome, punt->nome);
+      p1 -> hp = punt -> hp;
+      p1 -> dp = punt -> dp;
+      p1 -> ap = punt -> ap;
+    }
+
+    if (current_index == index2) {
+      strcpy(p2->nome, punt->nome);
+      p2 -> hp = punt -> hp;
+      p2 -> dp = punt -> dp;
+      p2 -> ap = punt -> ap;
+    }
+
+    current_index++;
     punt = punt -> prossimo;
   }
 }

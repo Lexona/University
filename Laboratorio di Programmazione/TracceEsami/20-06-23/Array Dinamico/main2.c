@@ -4,6 +4,8 @@
 int main () {
   //alloco in memoria la struttura dell'array
   struct Elenco l;
+  //inizializzo il generatore di numeri casuali
+  srand(time(NULL));
 
   //richiamo la funzione di lettura dei dati dal file
   load (&l, "personaggi.txt");
@@ -12,18 +14,14 @@ int main () {
   printf("-----------ELENCO GIOCATORI------------\n");
   print(l);
 
-  //faccio insrire all'utente il nome di due sfidanti
+  //genero due nomi casuali
   struct Personaggio p1, p2;
-
-  printf("Inserisci il nome del primo sfidante: ");
-  scanf("%s", p1.nome);
-  printf("Inserisci il nome del secondo sfidante: ");
-  scanf("%s", p2.nome);
-
-  //cerco i due personaggi nell'array e salvo i dati
-  trova_personaggio(l, &p1, &p2);
+  random_player (l, &p1, &p2);
 
   //faccio iniziare la sfida
+  printf("Il primo sfidante e': %s\n", p1.nome);
+  printf("Il secondo sfidante e': %s\n", p2.nome);
+
   printf("Bene! Che la sfida abbia inizio!\n");
   sfida(&p1, &p2);
 

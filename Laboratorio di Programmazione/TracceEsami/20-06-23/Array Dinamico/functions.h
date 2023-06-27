@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "structures.h"
+#include <time.h>
 
 //funzione di assegnazione dei valori nella struttura dell'array
 void init_array (struct Elenco *);
@@ -11,6 +12,9 @@ void insert (struct Elenco *, struct Personaggio *);
 
 //funzione di lettura dati dal file
 void load (struct Elenco *, char []);
+
+//funzione di stampa di un singolo elemento
+void print_elem (struct Personaggio[], int);
 
 //funzione di stampa dell'array
 void print (struct Elenco);
@@ -25,10 +29,13 @@ void colpisci (struct Personaggio *, struct Personaggio *);
 void sfida (struct Personaggio *, struct Personaggio *);
 
 //funzione di swap a sinistra
-void spostamento_a_sinistra (struct Elenco *, int);
+void shift_left (struct Elenco *, int);
 
 //funzione di rimozione di un giocatore dall'array
-int remove_player (struct Elenco, char[]);
+struct Elenco remove_player (struct Elenco, char[]);
 
 //funzione di scrittura nel nuovo file
 void write (struct Elenco, char[]);
+
+//funzione di generazione casuale di due personaggi
+void random_player (struct Elenco, struct Personaggio *, struct Personaggio *);

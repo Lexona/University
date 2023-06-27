@@ -38,15 +38,25 @@ void load (struct Elenco *l, char nomeFile[]) {
   fclose(file);
 }
 
-//funzione di stampa dell'array
+//funzione di stampa di un singolo elemento
+void print_elem (struct Personaggio vet[], int dim) {
+  //caso base
+  if (dim == 0)
+    return;
+
+  //negli altri casi
+  printf("------------------\n");
+  printf("Nome: %s\n", vet[0].nome);
+  printf("Hp: %d\n", vet[0].hp);
+  printf("Dp: %d\n", vet[0].dp);
+  printf("Ap: %d\n", vet[0].ap);
+
+  print_elem(vet+1, dim-1);
+}
+
+//funzione di stampa dell'array (ricorsiva)
 void print (struct Elenco l) {
-  for (int i = 0; i < l.dimensione; i++) {
-    printf("---------------\n");
-    printf("Nome: %s\n", l.vettore[i].nome);
-    printf("Hp: %d\n", l.vettore[i].hp);
-    printf("Dp: %d\n", l.vettore[i].dp);
-    printf("Ap: %d\n", l.vettore[i].ap);
-  }
+  print_elem(l.vettore, l.dimensione);
 }
 
 //funzione di ricerca di un giocatore
@@ -87,7 +97,7 @@ void sfida (struct Personaggio *p1, struct Personaggio *p2) {
 }
 
 //funzione di swap a sinistra
-void spostamento_a_sinistra (struct Elenco *l, int index) {
+void shift_left (struct Elenco *l, int index) {
   //controllo se l'indice è valido
   if (index < 0 || index >= l->dimensione) {
     printf("Indice non valido\n");
@@ -95,7 +105,7 @@ void spostamento_a_sinistra (struct Elenco *l, int index) {
   }
 
   //sposto gli elementi successivi di un indice verso sinistra
-  for (int i = index; i < l -> dimensione; i++)
+  for (int i = index; i < l -> dimensione - 1; i++)
     l -> vettore[i] = l -> vettore[i + 1];
 
   //riduco la dimensione del vettore
@@ -106,7 +116,7 @@ void spostamento_a_sinistra (struct Elenco *l, int index) {
 }
 
 //funzione di rimozione di un giocatore dall'array
-int remove_player (struct Elenco l, char nomePersonaggio[]) {
+struct Elenco remove_player (struct Elenco l, char nomePersonaggio[]) {
   int index = -1; //indice dell'elemento da eliminare
 
   //scorro l'array per trovare l'elemetno da eliminare
@@ -115,17 +125,12 @@ int remove_player (struct Elenco l, char nomePersonaggio[]) {
       index = i;
   }
 
-  //controllo se l'elemento è stato trovato
-  if (index == -1) {
-    return 1;
-  }
-
   //a questo punto faccio lo swap a sinistra
-  spostamento_a_sinistra(&l, index);
-  return 0;
+  shift_left(&l, index);
+  return l;
 }
 
-//funzione di scrittura nel nuovo file
+//funzione di scrittura nel nuovo file (Facoltativo A)
 void write (struct Elenco l, char nomeFile[]) {
   //apro il file in modalità scrittura
   FILE *file = fopen (nomeFile, "w");
@@ -147,4 +152,33 @@ void write (struct Elenco l, char nomeFile[]) {
   fclose(file);
 }
 
+//funzione di generazione casuale di due personaggi
+void random_player (struct Elenco l, struct Personaggio *p1, struct Personaggio *p2) {
+  //genero due indici e controllo che siano distinti
+  int index1 = rand() % l.dimensione, index2;
+  do {
+    index2 = rand() % l.dimensione;
+  } while (index1 == index2);
+
+  //cerco i personaggi agli indici specificati
+  int current_index = 0;
+
+  for (int i = 0; i < l.dimensione; i++) {
+    if (current_index == index1) {
+      strcpy(p1->nome, l.vettore[i].nome);
+      p1 -> hp = l.vettore[i].hp;
+      p1 -> dp = l.vettore[i].dp;
+      p1 -> ap = l.vettore[i].ap;
+    }
+
+    if (current_index == index2) {
+      strcpy(p2->nome, l.vettore[i].nome);
+      p2 -> hp = l.vettore[i].hp;
+      p2 -> dp = l.vettore[i].dp;
+      p2 -> ap = l.vettore[i].ap;
+    }
+
+    current_index++;
+  }
+}
 
