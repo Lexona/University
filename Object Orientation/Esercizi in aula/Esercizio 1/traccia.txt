@@ -1,0 +1,9 @@
+Utente ha login, password, costruttore e metodo di autenticazione
+
+Studente eredita da Utente, ha attributo matricola e corsiSeguiti e metodi iscrivi e elencoCorsiIscritto.
+
+Docente eredita da Utente e ha il metodo creaCorso
+
+CorsoDiLaurea ha un nome e una lista di corsi
+
+Corso ha un nome, un docente e un elenco di iscritti e un metodo visualizzaCorso
