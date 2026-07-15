@@ -1,0 +1,16 @@
+1) calcolare la lunghezza di una stringa senza utilizzare la funzione string length (strlen)
+2) effettuare la copia di una stringa in un'altra senza utilizzare funzione string copy (strcpy)
+3) implementare una funzione string_compare senza utilizzare quella già presente (strcmp)
+4) verificare se una stringa è composta da soli caratteri maiuscoli
+5) trasformazione stringa minuscola in maiuscola
+6) contare quanti caratteri maiuscoli sono presenti in una stringa
+7) dire in che posizione si trova il primo carattere maiuscolo all'iterno di una stringa
+8) contare quanti vocali e consonanti sono presenti in una stringa
+9) verificare se una stringa è palindroma
+10) data una stringa S e due variabili carattere C1 e C2, sostituire nella stringa S tutte le occorrenze di C1 con C2
+11) data una stringa S ed un vettore di interi V, inserire in V il numero di occorrenze di ogni carattere di S esempio: S= [ p i p p o \0 ] allora V= [ 3 1 3 3 1 ]
+12) scrivere un programma che stampi video la domanda cos'è un file .h? e, se l'utente risponde con una stringa contenente la parola libreria, il programma stampa bocciato, altrimenti Ok. Andiamo avanti.
+13) Data una matrice contenente, in ogni riga, una stringa, copiare in un vettore la prima lettera presente in ogni riga dopo averla convertita in maiuscolo
+14) Data una stringa s ed un'altra stringa q, verificare se q è una sottostringa di s
+15) Dato un array inizializzato con la stringa ciao\nmondo\n\0, eliminare eventuali caratteri \n contenuti, ottenendo la stringa finale ciao mondo (NB: verificare che la lunghezza della stringa sia esattamente 10).
+16) Verificare se una stringa venga alfabeticamente prima di un'altra (NB: attenzione minuscole/maiuscole)

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI.LaboratorioGUI">
+  <grid id="27dc6" binding="labMainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="636" height="546"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="802c2" binding="buttonsPanel" layout-manager="GridLayoutManager" row-count="7" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <vspacer id="75bd8">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="2ebeb" class="javax.swing.JButton" binding="homeBtn">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="0" height="0"/>
+                <preferred-size width="250" height="50"/>
+                <maximum-size width="500" height="500"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="0"/>
+              <text value="HOME"/>
+            </properties>
+          </component>
+          <component id="4e00b" class="javax.swing.JButton" binding="addBtn">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="0" height="0"/>
+                <preferred-size width="250" height="50"/>
+                <maximum-size width="500" height="500"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="0"/>
+              <text value="AGGIUNGI"/>
+            </properties>
+          </component>
+          <component id="b4626" class="javax.swing.JButton" binding="removeBtn">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="0" height="0"/>
+                <preferred-size width="250" height="50"/>
+                <maximum-size width="500" height="500"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="0"/>
+              <text value="ELIMINA"/>
+            </properties>
+          </component>
+          <vspacer id="bf8fa">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="67f9e" class="javax.swing.JButton" binding="collegaBtn">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="0" height="0"/>
+                <preferred-size width="250" height="50"/>
+                <maximum-size width="500" height="500"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="0"/>
+              <text value="ASSOCIA PROGETTO"/>
+            </properties>
+          </component>
+          <component id="ddc4d" class="javax.swing.JButton" binding="acquistaBtn">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="0" height="0"/>
+                <preferred-size width="250" height="50"/>
+                <maximum-size width="500" height="500"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="JetBrains Mono" size="16" style="0"/>
+              <text value="ACQUISTA ATTREZZATURA"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="7feb6" binding="labPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <scrollpane id="d13f9" binding="tableScrollPane">
+            <constraints border-constraint="Center"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="be1d3" class="javax.swing.JTable" binding="labTable">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+      <component id="6fc59" class="javax.swing.JButton" binding="addAfferenteBtn">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="0"/>
+            <preferred-size width="250" height="50"/>
+            <maximum-size width="500" height="500"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="16" style="0"/>
+          <text value="AGGIUNGI AFFERENTE"/>
+        </properties>
+      </component>
+      <component id="1d2af" class="javax.swing.JButton" binding="afferentiBtn">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="0"/>
+            <preferred-size width="250" height="50"/>
+            <maximum-size width="500" height="500"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="16" style="0"/>
+          <text value="VISUALIZZA AFFERENTI"/>
+        </properties>
+      </component>
+      <component id="57155" class="javax.swing.JButton" binding="sostBtn">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="0" height="0"/>
+            <preferred-size width="250" height="50"/>
+            <maximum-size width="500" height="500"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="JetBrains Mono" size="16" style="0"/>
+          <text value="SOSTITUISCI"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
